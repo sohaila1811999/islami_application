@@ -2,6 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled11/HomeScreen/fragments/hadethfragment.dart';
 import 'package:untitled11/HomeScreen/fragments/radiofragment.dart';
+import 'package:untitled11/Screens/azkar_screen.dart';
 import 'package:untitled11/main.dart';
 
 import '../hijriCalender.dart';
@@ -33,56 +34,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(canvasColor: Theme.of(context).primaryColor),
-        child: ConvexAppBar(
-          //currentIndex: selectedIndex,
-          //selectedIconTheme: IconThemeData(
 
-            // color: Theme.of(context).accentColor,
+          child: ConvexAppBar(
+height: 60,
+            items:  [
 
-//size: 37,
-        //),
-          //selectedItemColor:Theme.of(context).accentColor,
+              TabItem(
+                title:'قرآن',
+                icon:ImageIcon(AssetImage('assets/images/quran.png'),),
+              ),
+             TabItem(
+               title: 'أذكار',
 
-          //showUnselectedLabels: true,
-         // showSelectedLabels: true,
+                icon:ImageIcon(AssetImage('assets/images/quran.png'),),
 
-       //   iconSize: 35,
-          items:  [
-            TabItem(
-              title:'Radio',
-
-
-
-
-
-              icon:ImageIcon(AssetImage('assets/images/radio.png'),),
-
-            ),
-
+              ),
            TabItem(
-             title: 'Quran',
+                title: 'Tasbeh',
 
-              icon:ImageIcon(AssetImage('assets/images/quran.png'),),
+                icon:ImageIcon(AssetImage('assets/images/sebha.png'),),
 
-            ),
-         TabItem(
-              title: 'Tasbeh',
+              ),
+              TabItem(
+                title: 'تسبيح',
 
-              icon:ImageIcon(AssetImage('assets/images/sebha.png'),),
+                icon:ImageIcon(AssetImage('assets/images/quran-quran-svgrepo-com.png'),),
 
-            ),
-            TabItem(
-              title: 'Ahadeth',
+              ),
 
-              icon:ImageIcon(AssetImage('assets/images/quran-quran-svgrepo-com.png'),),
-
-            ),
-
-          ],
+            ],
 onTap: onBottomNavigationItemSelected,
 
+          ),
         ),
-      ),
+
      body: Stack(
        children:[
          Container(
@@ -113,7 +98,7 @@ Widget? getMainView(){
 
     }
     else if(selectedIndex==2){
-      return TasbehFragment();
+      return AzkarScreen();
 
     } else if(selectedIndex==3){
       return HijriCalender();
@@ -128,12 +113,10 @@ Widget? getMainView(){
 
   }
 List<String> titles=[
-  'Quran',
-  'Hadeth',
-  'Tasbeh',
-  'Radio',
-
-
+  'المصحف',
+  'أذكار',
+  'تقويم',
+  'تسبيح',
 ];
   Widget? getMainTitle() {
     return Text(titles[selectedIndex]);

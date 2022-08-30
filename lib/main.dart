@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'package:untitled11/HomeScreen/HomeScreen.dart';
 
 import 'Screens/SurahDetails.dart';
@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('ar', 'SA'),
-      ],
+      // localizationsDelegates: [
+      //   GlobalMaterialLocalizations.delegate,
+      //   GlobalWidgetsLocalizations.delegate,
+      // ],
+      // supportedLocales: [
+      //   const Locale('ar', 'SA'),
+      // ],
 
       themeMode: ThemeMode.light,
       routes: {
@@ -36,6 +36,9 @@ class MyApp extends StatelessWidget {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
+        textTheme: TextTheme( headlineLarge: TextStyle(
+        fontFamily: 'Tajawal',
+        fontSize: 22.0,),),
         primaryColor:MythemeData.yellow,
        accentColor:MythemeData.green ,
 
